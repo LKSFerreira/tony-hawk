@@ -3,16 +3,21 @@
 Projeto desafio Tony Hawk, promovido pela Atos com referência às Olimpíadas de Paris 2024
 
 ```md
-Precisamos impor algumas regras na hora de calcular a pontuação, seguiremos com a explicaçãoda interface e logo na sequência uma exemplificação.
+Precisamos impor algumas regras na hora de calcular a pontuação, seguiremos com a explicaçãoda
+interface e logo na sequência uma exemplificação.
 
 # 1 - Usuário vulgo Juiz
 - O juiz deverá selecionar as manobras na tela clicando com o botão esquerdo do mouse.
 
-- Caso o skatista realize uma manobra repetida o juiz deverá clicar com o botão direito do mouse para contabilizar a manobra, a cor da manobra será alterada e o contador do Combo será incrementado demonstrando visualmente que foi aplicado a seleção.
+- Caso o skatista realize uma manobra repetida o juiz deverá clicar com o botão direito 
+do mouse para contabilizar a manobra, a cor da manobra será alterada e o contador do Combo será 
+incrementado demonstrando visualmente que foi aplicado a seleção.
 
-- Caso o competidor erre alguma manobra, a mesma não será contabilizada, portanto o juiz devererá clicar no botão Zerar Combo para reiniciar o multiplicador.
+- Caso o competidor erre alguma manobra, a mesma não será contabilizada, portanto o juiz devererá 
+clicar no botão Zerar Combo para reiniciar o multiplicador.
 
-- Ao final da "run" o juiz deverá clicar no botão "Calcular" para que seja exibido no painel a pontuação final do competidor.
+- Ao final da "run" o juiz deverá clicar no botão "Calcular" para que seja exibido no painel a 
+pontuação final do competidor.
 ```
 ```md
 # 2 - Exemplos de pontuação e difinição de regras
@@ -45,11 +50,14 @@ total += (Weddle Backflip* 1) * 1;
 total += (Weddle Backflip* 2) * 2;
 total += (The 900 * 2) * 3;
 
-- A ordem da repetição das manobras não é considerada, o que importa é a quantidade de vezes que a manobra foi repetida.
+- A ordem da repetição das manobras não é considerada, o que importa é a quantidade de vezes que a 
+manobra foi repetida.
 
-- O combo (multiplicador) é incrementado a cada manobra realizada sem erro, caso o competeidor erre alguma manobra o multiplicador é zerado, isso não se aplica a repetição de manobras.
+- O combo (multiplicador) é incrementado a cada manobra realizada sem erro, caso o competeidor erre 
+alguma manobra o multiplicador é zerado, isso não se aplica a repetição de manobras.
 
-- O contador de repetição das manobras é individual, ou seja, cada manobra tem seu contador de repetição.
+- O contador de repetição das manobras é individual, ou seja, cada manobra tem seu contador 
+de repetição.
 ```
 
 ## Deploy
