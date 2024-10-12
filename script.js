@@ -29,8 +29,27 @@ const addOrUpdateSkatista = (nome, pontuacao) => {
 // Remove a lógica de alterar o tema, pois estamos fixando o tema "dark"
 document.documentElement.dataset.theme = "dark";
 
+// Função para calcular a pontuação
+const calcula_pontuacao = (manobra, quantidade, multiplicador) => {
+    return (manobra * quantidade) * multiplicador;
+};
+
+// Função para gerar uma cor aleatória
+const gerarCorAleatoria = () => {
+    const letras = '0123456789ABCDEF';
+    let cor = '#';
+    for (let i = 0; i < 6; i++) {
+        cor += letras[Math.floor(Math.random() * 16)];
+    }
+    return cor;
+};
+
 // Função para criar o formulário de manobras
 const createManobraForm = (manobras) => {
+    let comboCounter = 0;
+    let pontuacaoTotal = 0;
+    const manobrasRepetidas = {};
+
     const form = document.createElement('form');
     form.addEventListener('submit', (event) => event.preventDefault());
 
@@ -40,7 +59,7 @@ const createManobraForm = (manobras) => {
     fieldset.appendChild(legend);
 
     const ul = document.createElement('ul');
-
+    
     Object.keys(manobras).forEach((manobra) => {
         const li = document.createElement('li');
         const label = document.createElement('label');
@@ -59,6 +78,40 @@ const createManobraForm = (manobras) => {
         const input = document.createElement('input');
         input.classList.add('sr-only');
         input.type = 'checkbox';
+
+        input.addEventListener('change', () => {
+            if (input.checked) {
+                comboCounter++;
+                pontuacaoTotal += calcula_pontuacao(manobras[manobra], 1, comboCounter);
+                manobrasRepetidas[manobra] = (manobrasRepetidas[manobra] || 0) + 1;
+            } else {
+                comboCounter--;
+                pontuacaoTotal -= calcula_pontuacao(manobras[manobra], 1, comboCounter + 1); // Ajusta a pontuação ao desmarcar
+                manobrasRepetidas[manobra]--;
+            }
+            updateZerarComboButton();
+        });
+
+        // Adiciona o evento de clique com o botão direito do mouse
+        label.addEventListener('contextmenu', (event) => {
+            event.preventDefault();
+
+            // Verifica se a manobra está selecionada antes de permitir a repetição
+            if (!input.checked) {
+                alert("Apenas manobras selecionadas podem ser repetidas.");
+                return;
+            }
+            
+            // Incrementar o combo e o multiplicador
+            comboCounter++;
+            manobrasRepetidas[manobra]++;
+            pontuacaoTotal += calcula_pontuacao(manobras[manobra], manobrasRepetidas[manobra], comboCounter);
+
+            // Alterar a cor da manobra para uma cor aleatória
+            label.style.color = gerarCorAleatoria();
+
+            updateZerarComboButton();
+        });
 
         label.appendChild(spanManobra);
         label.appendChild(spanSvg);
@@ -109,19 +162,36 @@ const createManobraForm = (manobras) => {
             }
         }
 
-        let pontuacao = 0;
-
-        // Percorre todas as manobras selecionadas para calcular a pontuação total
-        selectedManobras.forEach(input => {
-            const manobra = input.parentElement.querySelector('span').textContent;
-            pontuacao += manobras[manobra] || 0;
-        });
-
-        addOrUpdateSkatista(nomeSkatista, pontuacao);  // Adiciona ou atualiza o skatista no placar
+        addOrUpdateSkatista(nomeSkatista, pontuacaoTotal);  // Adiciona ou atualiza o skatista no placar
 
         // Clica no botão reset
         resetButton.click();
+        pontuacaoTotal = 0; // Reseta a pontuação total após calcular
+        comboCounter = 0; // Reseta o contador do combo após calcular
+        Object.keys(manobrasRepetidas).forEach(key => manobrasRepetidas[key] = 0); // Reseta as manobras repetidas
+        updateZerarComboButton();
     });
+
+    // Evento para restaurar a cor original ao clicar em reset
+    resetButton.addEventListener('click', () => {
+        const allLabels = document.querySelectorAll('label');
+        allLabels.forEach((label) => {
+            label.style.removeProperty('color');  // Remove o estilo inline da cor
+        });
+    });
+
+    zerarComboButton.addEventListener('click', () => {
+        comboCounter = 0;
+        updateZerarComboButton();
+    });
+
+    const updateZerarComboButton = () => {
+        if (comboCounter > 0) {
+            zerarComboButton.textContent = `Zerar Combo ${comboCounter}x`;
+        } else {
+            zerarComboButton.textContent = 'Zerar Combo';
+        }
+    };
 
     return form;
 };
