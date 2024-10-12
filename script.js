@@ -96,11 +96,16 @@ const createManobraForm = (manobras) => {
         }
 
         let nomeSkatista = "";
-        while (nomeSkatista === "") {
-            nomeSkatista = prompt("Digite o nome do Skatista:");
+        while (true) {
+            nomeSkatista = prompt("Digite o nome do Skatista (3-12 caracteres):");
             if (nomeSkatista === null) {
                 // Se o usuário cancelar, sai da função sem reiniciar o formulário
                 return;
+            }
+            if (nomeSkatista.length >= 3 && nomeSkatista.length <= 12) {
+                break;
+            } else {
+                alert("O nome do skatista deve ter entre 3 e 12 caracteres.");
             }
         }
 
@@ -117,7 +122,6 @@ const createManobraForm = (manobras) => {
         // Clica no botão reset
         resetButton.click();
     });
-
 
     return form;
 };
