@@ -3,7 +3,7 @@
 Projeto desafio Tony Hawk, promovido pela Atos com referência às Olimpíadas de Paris 2024
 
 ```md
-Precisamos impor algumas regras na hora de calcular a pontuação, seguiremos com a explicaçãoda
+Precisamos impor algumas regras na hora de calcular a pontuação, seguiremos com a explicação da
 interface e logo na sequência uma exemplificação.
 
 # 1 - Usuário vulgo Juiz
@@ -18,6 +18,10 @@ clicar no botão Zerar Combo para reiniciar o multiplicador.
 
 - Ao final da "run" o juiz deverá clicar no botão "Calcular" para que seja exibido no painel a 
 pontuação final do competidor.
+
+- Caso o painel possua um nome igual, entendesse que se trata do mesmo skatista, logo a pontuação
+será substituída se o valor for maior que o atual, se o nome não foi identico será adicionado um
+novo competidor ao painel.
 ```
 ```md
 # 2 - Exemplos de pontuação e difinição de regras
@@ -32,22 +36,22 @@ total += (The 900 * 1) * 1;
 total += (Indy Backflip * 1) * 2;
 total += (Indy Backflip * 2) * 3;
 total += (Indy Frontflip * 1) * 4;
-total += (Weddle Backflip* 1) * 5;
-total += (Weddle Backflip* 2) * 6;
+total += (Weddle Backflip * 1) * 5;
+total += (Weddle Backflip * 2) * 6;
 
 - Manobras sem repetição e com erro:
 total += (The 900 * 1) * 1;
 total += (Indy Backflip * 1) * 2;
 total += (Indy Frontflip * 1) * 3;
-total += (Weddle Backflip* 1) * 1;
+total += (Weddle Backflip * 1) * 1;
 
 - Manobras com repetição e com erro:
 total += (The 900 * 1) * 1;
 total += (Indy Backflip * 1) * 2;
 total += (Indy Backflip * 2) * 3;
 total += (Indy Frontflip * 1) * 4;
-total += (Weddle Backflip* 1) * 1;
-total += (Weddle Backflip* 2) * 2;
+total += (Weddle Backflip * 1) * 1;
+total += (Weddle Backflip * 2) * 2;
 total += (The 900 * 2) * 3;
 
 - A ordem da repetição das manobras não é considerada, o que importa é a quantidade de vezes que a 
