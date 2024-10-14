@@ -3,7 +3,7 @@
 Projeto desafio Tony Hawk, promovido pela Atos com referência às Olimpíadas de Paris 2024
 
 ```md
-Precisamos impor algumas regras na hora de calcular a pontuação, seguiremos com a explicaçãoda
+Precisamos impor algumas regras na hora de calcular a pontuação, seguiremos com a explicação da
 interface e logo na sequência uma exemplificação.
 
 # 1 - Usuário vulgo Juiz
