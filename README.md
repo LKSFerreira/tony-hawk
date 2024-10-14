@@ -18,6 +18,10 @@ clicar no botão Zerar Combo para reiniciar o multiplicador.
 
 - Ao final da "run" o juiz deverá clicar no botão "Calcular" para que seja exibido no painel a 
 pontuação final do competidor.
+
+- Caso o painel possui um nome igual, entendesse que se trata do mesmo skatista, logo a pontuação
+será substituída se o valor for maior que o atual, se o nome não foi identico será adicionado um
+novo competidor ao painel.
 ```
 ```md
 # 2 - Exemplos de pontuação e difinição de regras
