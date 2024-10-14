@@ -36,22 +36,22 @@ total += (The 900 * 1) * 1;
 total += (Indy Backflip * 1) * 2;
 total += (Indy Backflip * 2) * 3;
 total += (Indy Frontflip * 1) * 4;
-total += (Weddle Backflip* 1) * 5;
-total += (Weddle Backflip* 2) * 6;
+total += (Weddle Backflip * 1) * 5;
+total += (Weddle Backflip * 2) * 6;
 
 - Manobras sem repetição e com erro:
 total += (The 900 * 1) * 1;
 total += (Indy Backflip * 1) * 2;
 total += (Indy Frontflip * 1) * 3;
-total += (Weddle Backflip* 1) * 1;
+total += (Weddle Backflip * 1) * 1;
 
 - Manobras com repetição e com erro:
 total += (The 900 * 1) * 1;
 total += (Indy Backflip * 1) * 2;
 total += (Indy Backflip * 2) * 3;
 total += (Indy Frontflip * 1) * 4;
-total += (Weddle Backflip* 1) * 1;
-total += (Weddle Backflip* 2) * 2;
+total += (Weddle Backflip * 1) * 1;
+total += (Weddle Backflip * 2) * 2;
 total += (The 900 * 2) * 3;
 
 - A ordem da repetição das manobras não é considerada, o que importa é a quantidade de vezes que a 
