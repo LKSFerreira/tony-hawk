@@ -57,8 +57,8 @@ total += (The 900 * 2) * 3;
 - A ordem da repetição das manobras não é considerada, o que importa é a quantidade de vezes que a 
 manobra foi repetida.
 
-- O combo (multiplicador) é incrementado a cada manobra realizada sem erro, caso o competeidor erre 
-alguma manobra o multiplicador é zerado, isso não se aplica a repetição de manobras.
+- O combo (multiplicador) é incrementado a cada manobra realizada sem erro, caso o competidor erre 
+alguma manobra o multiplicador é zerado, isso não se aplica as repetições das manobras.
 
 - O contador de repetição das manobras é individual, ou seja, cada manobra tem seu contador 
 de repetição.
