@@ -1,4 +1,4 @@
-import { Pane } from "https://cdn.skypack.dev/tweakpane";
+import { Pane } from "https://cdn.jsdelivr.net/npm/tweakpane";
 
 const ROOT_NODE = document.querySelector("#app");
 
